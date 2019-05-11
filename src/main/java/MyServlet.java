@@ -1,5 +1,6 @@
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -14,11 +15,18 @@ public class MyServlet extends HttpServlet {
         PrintWriter out = resp.getWriter();
 
 
+        String cookieValue = req.getParameter("cookieValue");
+
+        Cookie cookie = new Cookie("cookie", cookieValue);
+        resp.addCookie(cookie);
+
+        out.println(cookieValue);
+
 
 //        out.println("Hello world from mvn :) " + name + " " + surname);
 
 //        resp.sendRedirect(req.getContextPath() + "/servlet2");
-        getServletContext().getRequestDispatcher("/servlet2").forward(req, resp);
+//        getServletContext().getRequestDispatcher("/servlet2").forward(req, resp);
 //        getServletContext().getRequestDispatcher("/servlet2").include(req, resp);
     }
 
