@@ -37,7 +37,12 @@ public class MyServlet extends HttpServlet {
         String name = req.getParameter("name");
         String password = req.getParameter("password");
 
-        out.println("username: " + name);
-        out.println("passowrd: " + password);
+//        out.println("username: " + name);
+//        out.println("passowrd: " + password);
+
+        req.getSession().setAttribute("name", name);
+        req.getSession().setAttribute("password", password);
+
+        out.println("<a href=\"/servlet3\">Click to view credentials from login</a>");
     }
 }
