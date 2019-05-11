@@ -34,6 +34,10 @@ public class MyServlet extends HttpServlet {
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         PrintWriter out = resp.getWriter();
 
-        out.println("Hello from POST!");
+        String name = req.getParameter("name");
+        String password = req.getParameter("password");
+
+        out.println("username: " + name);
+        out.println("passowrd: " + password);
     }
 }
